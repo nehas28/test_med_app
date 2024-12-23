@@ -1,0 +1,109 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Kumbh Sans', sans-serif;
+    color: #160F29;
+    background-color: #F5E3C9;
+    overflow-x: hidden;
+}
+
+.main-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+/* Logo Section */
+.logo-container {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+.logo {
+    width: 170px;
+    height: auto;
+}
+
+/* Navbar Section */
+.navbar {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 50px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.navbar span {
+    font-size: 16px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.nav-btn {
+    margin-top: -10px;
+    padding: 10px 20px;
+    border: 2px solid #236B73;
+    border-radius: 30px;
+    background: none;
+    font-size: 15px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 600;
+    color: black;
+    cursor: pointer;
+}
+
+/* Headline Section */
+.headline {
+    text-align: center;
+    margin-top: -100px;
+}
+
+/* Headline Section */
+.headline h1 {
+    font-size: 6rem;
+    margin: 0;
+    font-weight: 300; /* Adjusted weight for "You Ask" */
+}
+
+.highlight {
+    color: #236B73;
+    font-weight: 1100;
+    background: linear-gradient(to right, #236B73, #87C3C6); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+}
+
+
+/* Subtext Section */
+.subtext {
+    margin-top: -180px;
+    text-align: center;
+    font-size: 1.7rem;
+    font-weight: 300;
+    line-height: 1.5;
+    max-width: 700px;
+}
+
+/* Get Started Button */
+.get-started-btn {
+    margin-top: -130px;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 40px;
+    background: #236B73;
+    color: #F5E3C9;
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 200px;
+}
+

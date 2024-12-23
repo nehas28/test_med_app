@@ -1,0 +1,143 @@
+/* General styling */
+body {
+    font-family: Kumbh Sans, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #DDBEA8;
+}
+
+/* Container for the form */
+.form-container {
+    width: 485px;
+    height: 947px;
+    margin: 0 auto;
+    position: relative;
+    background: #DDBEA8;
+    padding: 40px;
+}
+
+/* Title of the form */
+.form-title {
+    text-align: center;
+    color: #160F29;
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 27px;
+}
+
+/* Login info */
+.login-info {
+    text-align: center;
+    color: #160F29;
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+.login-link {
+    color: #236B73;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* Label styling */
+.form-label {
+    display: block;
+    text-align: left;
+    color: #160F29;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;  
+}
+
+/* Input container styling */
+.input-container {
+    width: 100%;
+    margin-bottom: 25px;  
+}
+
+/* Input field styling */
+.input-field {
+    width: 100%;
+    height: 40px;
+    background: #F5E3C9;
+    border-radius: 10px;
+    border: none;
+    padding-left: 10px;
+    font-size: 16px;
+}
+
+/* Styling for the role dropdown (select) */
+.input-role {
+    width: 100%;   /* Ensure dropdown is same width as input fields */
+    height: 40px;  /* Same height as other input fields */
+    background: #F5E3C9;  /* Same background */
+    border-radius: 10px;   /* Match border radius */
+    border: none;  /* Remove default border */
+    padding-left: 10px;   /* Same padding */
+    font-size: 16px;   /* Same font size */
+}
+
+/* Button styling */
+.submit-container, .reset-container {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.submit-btn, .reset-btn {
+    width: 100%;
+    height: 52px;
+    background: #236B73;
+    border-radius: 10px;
+    color: #F3DFC0;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover, .reset-btn:hover {
+    background: #160F29;
+}
+
+/* Specific field styles */
+.role-label {
+    margin-top: 40px;
+}
+
+.name-label,
+.phone-label,
+.email-label,
+.password-label {
+    margin-top: 40px;
+}
+
+.input-role, .input-name, .input-phone, .input-email, .input-password {
+    margin-top: 10px;  /* Increased space between input field and label */
+}
+
+/* Additional specific styling for form components */
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"] {
+    font-size: 16px;
+    padding: 8px;
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+    background-color: #F5E3C9;
+}
+
+.submit-btn {
+    background-color: #236B73;
+    color: white;
+}
+
+.reset-btn {
+    background-color: #160F29;
+    color: white;
+}
+
+/* Spacing between elements */
+.margin-top {
+    margin-top: 20px;
+}

@@ -1,0 +1,139 @@
+/* Container styling for centering the form on the page */
+.container {
+    width: 485px;
+    height: 674px;
+    position: absolute;
+    top: 50%; /* Centers the container vertically */
+    left: 50%; /* Centers the container horizontally */
+    transform: translate(-50%, -50%); /* Adjusts to truly center the container */
+    background: #DDBEA8;
+    padding: 20px;
+    font-family: 'Kumbh Sans', sans-serif; /* Applied Kumbh Sans font */
+}
+
+/* Title style */
+.title {
+    padding: 5px;
+    text-align: center;
+    color: #160F29;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+/* New member text style */
+.new-member-text {
+    text-align: center;
+    padding: 30px;
+}
+
+.new-member-text span {
+    color: #160F29;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+/* Create Account link styling */
+.new-member-link {
+    text-decoration: none;
+    color: #236B73; /* Green color for the link */
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.new-member-link:hover {
+    text-decoration: underline; /* Underlines the link on hover */
+}
+
+/* Input field styles */
+.input-field {
+    width: 95%;
+    height: 45px;
+    background: #F5E3C9;
+    border-radius: 10px;
+    margin-bottom: 20px; /* Adds space between inputs */
+    border: none;
+    padding-left: 10px; /* Adds some padding to make the text more readable */
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+/* Label styles */
+.email-label, .password-label {
+    text-align: left;
+    color: #160F29;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px; /* Adds space between label and input */
+    margin-left: 10px;
+}
+
+/* Forgot password text style */
+.forgot-password a {
+    color: #236B73; /* Green color for the link */
+    font-size: 18px;
+    font-weight: 300;
+    text-decoration: none; /* Removes underline by default */
+    padding-left: 180px;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline; /* Underlines the link on hover */
+}
+
+.forgot-password {
+    margin-top: 60px; /* Adjust the margin to move it lower */
+}
+
+/* Password toggle icon */
+.password-toggle {
+    width: 20px;
+    height: 20px;
+    padding-left: 2.29px;
+    padding-right: 2.29px;
+    padding-top: 3.33px;
+    padding-bottom: 3.33px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 341px;
+    right: 20px;
+}
+
+.password-toggle-inner {
+    width: 15.42px;
+    height: 13.33px;
+    position: relative;
+}
+
+.password-toggle-inner div {
+    border: 1.5px #160F29 solid;
+}
+
+/* Submit button */
+.submit-btn, .reset-btn {
+    width: 100%;
+    height: 52px;
+    border-radius: 10px;
+    margin-top: 20px; /* Adds space between buttons */
+    background-color: #236B73;
+    color: #F3DFC0;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+}
+
+.submit-text, .reset-text {
+    text-align: center;
+    line-height: 52px; /* Centers the text vertically */
+}
+
+/* Reset button */
+.reset-btn {
+    background-color: #160F29;
+}
+
+.reset-btn:hover, .submit-btn:hover {
+    opacity: 0.8; /* Adds a hover effect */
+}
