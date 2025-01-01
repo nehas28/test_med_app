@@ -1,11 +1,12 @@
 import React from 'react';
-import './Navbar.css'; 
+import './Navbar.css';
+import logo from './navImages/logo-light-version.png';
 
 const Navbar = () => {
   return (
     <div className="main-container">
       <div className="logo-container">
-        <img className="logo" src="navImages/logo-light-version.png" alt="Logo" />
+        <img className="logo" src={logo} alt="Logo" />
       </div>
       <div className="navbar">
         <span>Home</span>
@@ -28,4 +29,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar; 
+export default Navbar;
