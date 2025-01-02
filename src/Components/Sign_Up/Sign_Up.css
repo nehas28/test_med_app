@@ -97,9 +97,20 @@ body {
     transition: background 0.3s;
 }
 
-.submit-btn:hover, .reset-btn:hover {
+.submit-btn:hover {
     background: #160F29;
 }
+
+.reset-btn {
+    background: #160F29;
+    color: white;
+}
+
+.reset-btn:hover {
+    background: #236B73; /* Matches the submit button's default color */
+    color: #F3DFC0; /* Ensures consistent text color */
+}
+
 
 /* Specific field styles */
 .role-label {
@@ -126,17 +137,6 @@ input[type="text"], input[type="email"], input[type="password"], input[type="tel
     width: 100%;
     background-color: #F5E3C9;
 }
-
-.submit-btn {
-    background-color: #236B73;
-    color: white;
-}
-
-.reset-btn {
-    background-color: #160F29;
-    color: white;
-}
-
 /* Spacing between elements */
 .margin-top {
     margin-top: 20px;
