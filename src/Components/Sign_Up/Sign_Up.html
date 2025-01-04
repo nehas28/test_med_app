@@ -10,7 +10,8 @@
         <div class="form-container">
             <div class="form-title">Sign Up</div>
             <div class="login-info">
-                <span>Already a member? </span><span class="login-link">Login</span>
+                <span>Already a member? </span>
+                <a href="Login.html" class="login-link">Login</a>
             </div>
 
             <!-- Role Field -->
@@ -30,11 +31,12 @@
                 <input type="text" id="name" name="name" class="input-field" placeholder="Enter your name">
             </div>
 
-            <!-- Phone Field -->
             <label for="phone" class="form-label">Phone</label>
             <div class="input-container">
                 <input type="text" id="phone" name="phone" class="input-field" placeholder="Enter your phone number">
+                <span id="phone-error" class="error-message" style="color: red; display: none;">Invalid phone number format. Use ###-###-####</span>
             </div>
+
 
             <!-- Email Field -->
             <label for="email" class="form-label">Email</label>
@@ -46,7 +48,13 @@
             <label for="password" class="form-label">Password</label>
             <div class="input-container">
                 <input type="password" id="password" name="password" class="input-field" placeholder="Enter your password">
+                <span class="toggle-password" onclick="togglePassword()">
+                    <img id="toggle-icon" src="suImages/mage_eye-off.png" alt="Toggle Password Visibility" />
+                </span>
+                <span id="password-error" class="error-message" style="color: red; display: none;">Password must be max 25 characters, contain at least one special character, and one number.</span>
             </div>
+
+
 
             <!-- Submit Button -->
             <div class="submit-container">
@@ -58,4 +66,6 @@
             </div>
         </div>
     </body>
+
+    <script src="Sign_Up.js"></script>
 </html>
