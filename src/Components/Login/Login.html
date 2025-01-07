@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,25 +14,19 @@
             <a href="#" class="new-member-link" style="color: #236B73;">Create Account</a>
         </div>
         
-
         <div class="email-label">Email</div>
-        <input type="email" class="input-field" placeholder="Enter your email" />
+        <input type="email" id="email" class="input-field" placeholder="Enter your email" />
+        <div id="email-error" class="error-message"></div> <!-- Error message placeholder -->
 
         <div class="password-label">Password</div>
-        <input type="password" class="input-field" placeholder="Enter your password" />
+        <input type="password" id="password" class="input-field" placeholder="Enter your password" />
+        <div id="password-error" class="error-message"></div> <!-- Error message placeholder -->
 
-        <div class="password-toggle">
-            <div class="password-toggle-inner">
-                <div></div>
-                <div></div>
-            </div>
-        </div>
-
-        <button class="submit-btn">
+        <button class="submit-btn" id="submit-btn">
             <div class="submit-text">Submit</div>
         </button>
 
-        <button class="reset-btn">
+        <button class="reset-btn" id="reset-btn">
             <div class="reset-text">Reset</div>
         </button>
 
@@ -41,5 +34,6 @@
             <a href="#" style="color: #236B73;">Forgot Password?</a>
         </div>
     </div>
+    <script src="Login.js"></script>
 </body>
 </html>

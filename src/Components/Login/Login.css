@@ -137,3 +137,12 @@
 .reset-btn:hover, .submit-btn:hover {
     opacity: 0.8; /* Adds a hover effect */
 }
+
+.error-message {
+    font-size: 12px;
+    color: red;
+    margin-top: -15px;
+    margin-bottom: 5px;
+    margin-left: 12px;
+}
+
