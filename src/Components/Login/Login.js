@@ -1,48 +1,98 @@
-// Select the elements
-const submitBtn = document.getElementById('submit-btn');
-const emailField = document.getElementById('email');
-const passwordField = document.getElementById('password');
-const emailError = document.getElementById('email-error');
-const passwordError = document.getElementById('password-error');
+import React, { useState } from "react";
+import "./Login.css";
 
-// Add event listener to the submit button
-submitBtn.addEventListener('click', function (event) {
-    event.preventDefault(); // Prevent form submission for validation
+function Login() {
+    // State variables for input fields and error messages
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [emailError, setEmailError] = useState("");
+    const [passwordError, setPasswordError] = useState("");
 
-    // Clear previous error messages
-    emailError.textContent = '';
-    passwordError.textContent = '';
+    // Submit button handler
+    const handleSubmit = (event) => {
+        event.preventDefault();
 
-    const email = emailField.value.trim();
-    const password = passwordField.value.trim();
-    let isValid = true;
+        // Clear previous error messages
+        setEmailError("");
+        setPasswordError("");
 
-    // Validate email
-    if (!email.includes('@')) {
-        emailError.textContent = 'Please enter a valid email address containing "@"';
-        isValid = false;
-    }
+        let isValid = true;
 
-    // Validate password
-    if (password === '') {
-        passwordError.textContent = 'Password field cannot be empty';
-        isValid = false;
-    }
+        // Validate email
+        if (!email.includes("@")) {
+            setEmailError('Please enter a valid email address containing "@"');
+            isValid = false;
+        }
 
-    // If both are valid, proceed without a popup
-    if (isValid) {
-        // Perform the next action, e.g., submit the form data
-        console.log('Form is valid! Ready to proceed.');
-        // Example: Submit the form programmatically or redirect
-        // formElement.submit(); or window.location.href = "/success";
-    }
-});
+        // Validate password
+        if (password === "") {
+            setPasswordError("Password field cannot be empty");
+            isValid = false;
+        }
 
-// Clear error messages on reset
-const resetBtn = document.getElementById('reset-btn');
-resetBtn.addEventListener('click', function () {
-    emailError.textContent = '';
-    passwordError.textContent = '';
-    emailField.value = '';
-    passwordField.value = '';
-});
+        // If valid, log the result or handle form submission
+        if (isValid) {
+            console.log("Form is valid! Email:", email, "Password:", password);
+        }
+    };
+
+    // Reset button handler
+    const handleReset = () => {
+        setEmail("");
+        setPassword("");
+        setEmailError("");
+        setPasswordError("");
+    };
+
+    return (
+        <div className="container">
+            <div className="title">Login</div>
+            <div className="new-member-text">
+                <span>Are you a new member? </span>
+                <a href="#" className="new-member-link" style={{ color: "#236B73" }}>
+                    Create Account
+                </a>
+            </div>
+
+            <div className="email-label">Email</div>
+            <input
+                type="email"
+                id="email"
+                className="input-field"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+            />
+            {emailError && <div id="email-error" className="error-message">{emailError}</div>}
+
+            <div className="password-label">Password</div>
+            <input
+                type="password"
+                id="password"
+                className="input-field"
+                placeholder="Enter your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+            />
+            {passwordError && (
+                <div id="password-error" className="error-message">{passwordError}</div>
+            )}
+
+            <button id="submit-btn" className="submit-btn" onClick={handleSubmit}>
+                <div className="submit-text">Submit</div>
+            </button>
+
+            <button id="reset-btn" className="reset-btn" onClick={handleReset}>
+                <div className="reset-text">Reset</div>
+            </button>
+
+            <div className="forgot-password">
+                <a href="#" style={{ color: "#236B73" }}>
+                    Forgot Password?
+                </a>
+            </div>
+        </div>
+    );
+}
+
+export default Login;
