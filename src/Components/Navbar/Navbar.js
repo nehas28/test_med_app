@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link for navigation
 import './Navbar.css';
 import logo from './navImages/logo-light-version.png';
 
@@ -14,7 +15,8 @@ const Navbar = () => {
         <span>Health Blog</span>
         <span>Reviews</span>
         <button className="nav-btn">Sign Up</button>
-        <button className="nav-btn">Login</button>
+        {/* Replace Login button with a Link */}
+        <Link to="/login" className="nav-btn">Login</Link>
       </div>
       <div className="headline">
         <h1>You Ask,</h1>
