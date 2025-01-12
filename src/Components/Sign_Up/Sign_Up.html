@@ -7,14 +7,12 @@
     <link rel="stylesheet" href="Sign_Up.css"> 
 </head>
 <body>
-    <div class="overlay"></div> <!-- Overlay background -->
-    <div class="modal-container">
-        <form id="signup-form" class="form-container">
-            <div class="form-title">Sign Up</div>
-            <div class="login-info">
-                <span>Already a member? </span>
-                <a href="Login.html" class="login-link">Login</a>
-            </div>
+    <form id="signup-form" class="form-container">
+        <div class="form-title">Sign Up</div>
+        <div class="login-info">
+            <span>Already a member? </span>
+            <a href="Login.html" class="login-link">Login</a>
+        </div>
 
         <!-- Role Field -->
         <label for="role" class="form-label">Role</label>
@@ -55,14 +53,16 @@
             <span id="password-error" class="error-message" style="color: red; display: none;">Password must be max 25 characters, contain at least one special character, and one number.</span>
         </div>
 
+        <!-- Submit Button -->
         <div class="submit-container">
-                <button type="submit" class="submit-btn">Submit</button>
-            </div>
-            <div class="reset-container">
-                <button type="reset" class="reset-btn" onclick="resetForm()">Reset</button>
-            </div>
-        </form>
-    </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </div>
+
+        <!-- Reset Button -->
+        <div class="reset-container">
+            <button type="reset" class="reset-btn" onclick="resetForm()">Reset</button>
+        </div>
+    </form>
     <script src="Sign_Up.js"></script>
 </body>
 </html>

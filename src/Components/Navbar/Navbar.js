@@ -14,8 +14,11 @@ const Navbar = () => {
         <span>Appointments</span>
         <span>Health Blog</span>
         <span>Reviews</span>
-        <button className="nav-btn">Sign Up</button>
-        {/* Replace Login button with a Link */}
+
+        {/* Link to Sign Up */}
+        <Link to="/signup" className="nav-btn">Sign Up</Link>
+        
+        {/* Link to Login */}
         <Link to="/login" className="nav-btn">Login</Link>
       </div>
       <div className="headline">
