@@ -1,129 +1,176 @@
 import React, { useState } from 'react';
 import './Sign_Up.css';
-import mageEyeOn from './suImages/ri_eye-line.png';
-import mageEyeOff from './suImages/mage_eye-off.png';
+import { useNavigate } from 'react-router-dom';
+import { API_URL } from '../../config';
 
-const SignUp = () => {
-    const [showPassword, setShowPassword] = useState(false);
+// Function component for Sign Up form
+const Sign_Up = () => {
+    // State variables using useState hook
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [showerr, setShowerr] = useState(''); // State to show error messages
+    const [isSubmitted, setIsSubmitted] = useState(false); // Track if the form is submitted
+    const navigate = useNavigate(); // Navigation hook from react-router
 
-    const togglePassword = () => {
-        setShowPassword((prev) => !prev); // Toggle the state
+    // Function to handle form submission
+    const register = async (e) => {
+        e.preventDefault(); // Prevent default form submission
+
+        // Validation: Ensure password and confirm password match
+        if (password !== confirmPassword) {
+            setShowerr('Passwords do not match!');
+            return;
+        }
+
+        // API Call to register user
+        const response = await fetch(`${API_URL}/api/auth/register`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                password: password,
+                phone: phone,
+            }),
+        });
+
+        const json = await response.json(); // Parse the response JSON
+
+        if (json.authtoken) {
+            // Store user data in session storage
+            sessionStorage.setItem("auth-token", json.authtoken);
+            sessionStorage.setItem("name", name);
+            sessionStorage.setItem("phone", phone);
+            sessionStorage.setItem("email", email);
+
+            // Set form submission to true to hide the form
+            setIsSubmitted(true);
+
+            // Redirect user to home page
+            navigate("/");
+
+            // Refresh the page (optional, can be removed if not needed)
+            window.location.reload();
+        } else {
+            if (json.errors) {
+                for (const error of json.errors) {
+                    setShowerr(error.msg); // Show error messages
+                }
+            } else {
+                setShowerr(json.error);
+            }
+        }
     };
 
-    const resetForm = () => {
-        document.getElementById('signup-form').reset();
-        setShowPassword(false); // Reset the password visibility state
+    // Function to handle restarting the form
+    const restartForm = () => {
+        setName('');
+        setEmail('');
+        setPhone('');
+        setPassword('');
+        setConfirmPassword('');
+        setShowerr('');
+        setIsSubmitted(false);
     };
 
+    // JSX to render the Sign Up form
     return (
-        <div>
-            <form id="signup-form" className="form-container">
-                <div className="form-title">Sign Up</div>
-                <div className="login-info">
-                    <span>Already a member? </span>
-                    <a href="Login.html" className="login-link">Login</a>
-                </div>
+        <div className="container" style={{ marginTop: '5%' }}>
+            <div className="signup-grid">
+                {/* If the form is submitted, hide the form */}
+                {!isSubmitted ? (
+                    <div className="signup-form">
+                        <form method="POST" onSubmit={register}>
+                            <div className="form-group">
+                                <label htmlFor="name">Name</label>
+                                <input 
+                                    value={name} 
+                                    onChange={(e) => setName(e.target.value)} 
+                                    type="text" 
+                                    name="name" 
+                                    id="name" 
+                                    className="form-control" 
+                                    placeholder="Enter your name" 
+                                    required 
+                                />
+                            </div>
 
-                {/* Role Field */}
-                <label htmlFor="role" className="form-label">Role</label>
-                <div className="input-container">
-                    <select id="role" name="role" className="input-field">
-                        <option value="enter-role">Enter Role</option>
-                        <option value="doctor">Doctor</option>
-                        <option value="patient">Patient</option>
-                        <option value="admin">Admin</option>
-                    </select>
-                </div>
+                            <div className="form-group">
+                                <label htmlFor="email">Email</label>
+                                <input 
+                                    value={email} 
+                                    onChange={(e) => setEmail(e.target.value)} 
+                                    type="email" 
+                                    name="email" 
+                                    id="email" 
+                                    className="form-control" 
+                                    placeholder="Enter your email" 
+                                    required 
+                                />
+                            </div>
 
-                {/* Name Field */}
-                <label htmlFor="name" className="form-label">Name</label>
-                <div className="input-container">
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        className="input-field"
-                        placeholder="Enter your name"
-                    />
-                </div>
+                            <div className="form-group">
+                                <label htmlFor="phone">Phone</label>
+                                <input 
+                                    value={phone} 
+                                    onChange={(e) => setPhone(e.target.value)} 
+                                    type="tel" 
+                                    name="phone" 
+                                    id="phone" 
+                                    className="form-control" 
+                                    placeholder="Enter your phone number" 
+                                    required 
+                                />
+                            </div>
 
-                {/* Phone Field */}
-                <label htmlFor="phone" className="form-label">Phone</label>
-                <div className="input-container">
-                    <input
-                        type="text"
-                        id="phone"
-                        name="phone"
-                        className="input-field"
-                        placeholder="Enter your phone number"
-                    />
-                    <span
-                        id="phone-error"
-                        className="error-message"
-                        style={{ color: 'red', display: 'none' }}
-                    >
-                        Invalid phone number format. Use ###-###-####.
-                    </span>
-                </div>
+                            <div className="form-group">
+                                <label htmlFor="password">Password</label>
+                                <input 
+                                    value={password} 
+                                    onChange={(e) => setPassword(e.target.value)} 
+                                    type="password" 
+                                    name="password" 
+                                    id="password" 
+                                    className="form-control" 
+                                    placeholder="Enter your password" 
+                                    required 
+                                />
+                            </div>
 
-                {/* Email Field */}
-                <label htmlFor="email" className="form-label">Email</label>
-                <div className="input-container">
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        className="input-field"
-                        placeholder="Enter your email"
-                    />
-                </div>
+                            <div className="form-group">
+                                <label htmlFor="confirmPassword">Confirm Password</label>
+                                <input 
+                                    value={confirmPassword} 
+                                    onChange={(e) => setConfirmPassword(e.target.value)} 
+                                    type="password" 
+                                    name="confirmPassword" 
+                                    id="confirmPassword" 
+                                    className="form-control" 
+                                    placeholder="Confirm your password" 
+                                    required 
+                                />
+                            </div>
 
-                {/* Password Field */}
-                <label htmlFor="password" className="form-label">Password</label>
-                <div className="input-container">
-                    <input
-                        type={showPassword ? 'text' : 'password'}
-                        id="password"
-                        name="password"
-                        className="input-field"
-                        placeholder="Enter your password"
-                    />
-                    <span className="toggle-password" onClick={togglePassword}>
-                        <img
-                            id="toggle-icon"
-                            src={showPassword ? mageEyeOn : mageEyeOff}
-                            alt="Toggle Password Visibility"
-                        />
-                    </span>
-                    <span
-                        id="password-error"
-                        className="error-message"
-                        style={{ color: 'red', display: 'none' }}
-                    >
-                        Password must be max 25 characters, contain at least one special character, and one number.
-                    </span>
-                </div>
+                            {/* Show error message if any */}
+                            {showerr && <div className="err" style={{ color: 'red' }}>{showerr}</div>}
 
-                {/* Submit Button */}
-                <div className="submit-container">
-                    <button type="submit" className="submit-btn">
-                        Submit
-                    </button>
-                </div>
-
-                {/* Reset Button */}
-                <div className="reset-container">
-                    <button
-                        type="reset"
-                        className="reset-btn"
-                        onClick={resetForm}
-                    >
-                        Reset
-                    </button>
-                </div>
-            </form>
+                            <button type="submit" className="submit-btn">Submit</button>
+                        </form>
+                    </div>
+                ) : (
+                    // If submitted, show the "Restart Form" button
+                    <div className="restart-btn-container">
+                        <button onClick={restartForm} className="restart-btn">Restart Form</button>
+                    </div>
+                )}
+            </div>
         </div>
     );
 };
 
-export default SignUp;
+export default Sign_Up;
