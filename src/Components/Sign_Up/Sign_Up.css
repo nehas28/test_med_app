@@ -1,41 +1,61 @@
 /* General styling */
 body {
-    font-family: Kumbh Sans, sans-serif;
+    font-family: 'Kumbh Sans', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #DDBEA8;
+    background-color: #160F29; /* Dimmed background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
 }
 
-/* Container for the form */
-.form-container {
-    width: 485px;
-    height: 947px;
-    margin: 0 auto;
-    position: relative;
-    background: #DDBEA8;
-    padding: 40px;
+/* Modal container for the form */
+.modal-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #DDBEA8;
+    width: 400px; /* Adjust width as needed */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000; /* Ensures it appears above other elements */
+}
+
+/* Overlay background */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Dim background */
+    z-index: 999; /* Below the modal container */
 }
 
 /* Title of the form */
 .form-title {
     text-align: center;
     color: #160F29;
-    font-size: 40px;
+    font-size: 24px;
     font-weight: 700;
-    margin-bottom: 27px;
+    margin-bottom: 20px;
 }
 
 /* Login info */
 .login-info {
     text-align: center;
     color: #160F29;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 300;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .login-link {
-    color: #236B73; /* Adjust color as needed */
+    color: #236B73;
     text-decoration: none;
     cursor: pointer;
 }
@@ -49,16 +69,34 @@ body {
     display: block;
     text-align: left;
     color: #160F29;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
-    margin-bottom: 10px;  
+    margin-bottom: 8px;  
 }
 
-/* Position the toggle button inside the password field */
+/* Input container */
 .input-container {
-    position: relative; /* Allows positioning of the toggle button inside the container */
+    position: relative;
     width: 100%;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+}
+
+/* Input field styling */
+.input-field {
+    width: 100%;
+    height: 40px;
+    background: #F5E3C9;
+    border-radius: 10px;
+    border: none;
+    padding-left: 10px;
+    font-size: 16px;
+}
+
+/* Dropdown styling */
+select.input-field {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 /* Toggle password icon styling */
@@ -75,41 +113,28 @@ body {
     height: 20px;
 }
 
-/* Input field styling */
-.input-field {
-    width: 100%;
-    height: 40px;
-    background: #F5E3C9;
-    border-radius: 10px;
-    border: none;
-    padding-left: 10px;
-    font-size: 16px;
-}
-
-/* Styling for the role dropdown (select) */
-.input-role {
-    width: 100%;   /* Ensure dropdown is same width as input fields */
-    height: 40px;  /* Same height as other input fields */
-    background: #F5E3C9;  /* Same background */
-    border-radius: 10px;   /* Match border radius */
-    border: none;  /* Remove default border */
-    padding-left: 10px;   /* Same padding */
-    font-size: 16px;   /* Same font size */
+/* Error message styling */
+.error-message {
+    font-size: 12px;
+    color: red;
+    margin-top: 5px;
+    display: none;
 }
 
 /* Button styling */
 .submit-container, .reset-container {
     width: 100%;
-    margin-top: 20px;
+    text-align: center;
+    margin-top: 10px;
 }
 
 .submit-btn, .reset-btn {
-    width: 100%;
-    height: 52px;
+    width: 120px;
+    height: 40px;
     background: #236B73;
     border-radius: 10px;
     color: #F3DFC0;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     border: none;
     cursor: pointer;
@@ -126,44 +151,12 @@ body {
 }
 
 .reset-btn:hover {
-    background: #236B73; /* Matches the submit button's default color */
-    color: #F3DFC0; /* Ensures consistent text color */
+    background: #236B73;
+    color: #F3DFC0;
 }
 
 
-/* Specific field styles */
-.role-label {
-    margin-top: 40px;
-}
 
-.name-label,
-.phone-label,
-.email-label,
-.password-label {
-    margin-top: 40px;
+.modal-container {
+    animation: fadeIn 0.3s ease-in-out;
 }
-
-.input-role, .input-name, .input-phone, .input-email, .input-password {
-    margin-top: 10px;  /* Increased space between input field and label */
-}
-
-/* Additional specific styling for form components */
-input[type="text"], input[type="email"], input[type="password"], input[type="tel"] {
-    font-size: 16px;
-    padding: 8px;
-    border-radius: 10px;
-    border: none;
-    width: 100%;
-    background-color: #F5E3C9;
-}
-/* Spacing between elements */
-.margin-top {
-    margin-top: 20px;
-}
-
-.error-message {
-    font-size: 12px;
-    color: red;
-    margin-top: 5px;
-}
-
